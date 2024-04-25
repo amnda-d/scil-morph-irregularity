@@ -78,9 +78,12 @@ def read_data(file):
         for line in tqdm(fp.readlines()):
             if line == "\n":
                 continue
-            lemma, word, tags = line.strip().split("\t")
+            try:
+                _, lemma, _, word, tags = line.strip().split("\t")
+            except:
+                print(line)
             edit_script = edit_distance(lemma, word)
-            data[lemma].append(line)
+            data[lemma].append(lemma + '\t' + word + '\t' + tags + '\n')
             data_edit[lemma][tags] = edit_script
     return data, data_edit
 

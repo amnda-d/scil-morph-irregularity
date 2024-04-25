@@ -290,7 +290,7 @@ class SIGMORPHON2017Task1(Seq2SeqDataLoader):
                     print("WARNING: missing tokens", toks)
                     continue
                 lemma, word, tags = toks
-                yield list(lemma), list(word), tags.split(";")
+                yield list(lemma.split(" ")), list(word.split(" ")), tags.split(";")
 
     def _iter_helper(self, file):
         for lemma, word, tags in self.read_file(file):
@@ -341,7 +341,7 @@ class Lemmatization(SIGMORPHON2017Task1):
         with open(file, "r", encoding="utf-8") as fp:
             for line in fp.readlines():
                 word, lemma, tags = line.strip().split("\t")
-                yield list(word.lower()), list(lemma.lower()), tags.split("|")
+                yield list(word.split(" ").lower()), list(lemma.split(" ").lower()), tags.split("|")
 
 
 class LemmatizationNotag(Seq2SeqDataLoader):

@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 
-from align import Aligner
+# from align import Aligner
 
 BOS = "<BOS>"
 EOS = "<EOS>"

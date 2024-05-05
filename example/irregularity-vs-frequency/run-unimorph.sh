@@ -12,5 +12,5 @@ python scil-morph-irregularity/src/train.py \
     --seed $seed \
     --embed_dim 200 --src_hs 400 --trg_hs 400 --dropout 0.4 \
     --src_layer 2 --trg_layer 1 --max_norm 5 --nb_sample 4 \
-    --arch $arch --gpuid 0 --estop 1e-8 --epochs 100 --bs 20 --indtag --mono \
+    --arch $arch --gpuid 0 --estop 1e-8 --epochs 200 --bs 20 --indtag --mono \
     --load "smart"
